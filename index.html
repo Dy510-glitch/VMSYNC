@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMC SYNC</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="login-container">
+
+        <div class="login-box">
+
+            <h1>VMC <span>SYNC</span></h1>
+
+            <p>Connect. Collaborate. Stay in Sync.</p>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your name"
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+            >
+
+            <button onclick="login()">LOGIN</button>
+
+            <p class="small-text">
+                VMC Student Community Platform
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN WEBSITE -->
+    <div id="mainPage" class="hidden">
+
+        <!-- NAVIGATION -->
+        <header>
+
+            <div class="logo">
+                VMC <span>SYNC</span>
+            </div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#activities">Activities</a>
+                <a href="#assignments">Assignments</a>
+                <a href="#toolkit">Toolkit</a>
+                <a href="#lostfound">Lost & Found</a>
+            </nav>
+
+            <button class="logout" onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+
+        <!-- MAIN CONTENT -->
+        <main id="home">
+
+            <!-- WELCOME -->
+            <section class="welcome">
+
+                <h2>
+                    Welcome to VMC SYNC,
+                    <span id="displayName"></span>!
+                </h2>
+
+                <p>
+                    Your school community, information,
+                    and collaboration platform.
+                </p>
+
+            </section>
+
+
+            <!-- CREATE POST -->
+            <section class="post-box">
+
+                <h3>Create a Post</h3>
+
+                <textarea
+                    id="postContent"
+                    placeholder="What's happening in VMC?"
+                ></textarea>
+
+                <button onclick="createPost()">
+                    Post
+                </button>
+
+            </section>
+
+
+            <!-- COMMUNITY FEED -->
+            <section class="section">
+
+                <h2>Community Feed</h2>
+
+                <div id="feed">
+
+                    <div class="post">
+
+                        <h3>VMC Student</h3>
+
+                        <p>
+                            Welcome to VMC SYNC!
+                            This is our new student
+                            community platform.
+                        </p>
+
+                        <button onclick="react(this)">
+                            ❤️ 0
+                        </button>
+
+                        <button>
+                            💬 Comment
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANNOUNCEMENTS -->
+            <section class="section">
+
+                <h2>📢 Announcements</h2>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <h3>School Announcement</h3>
+
+                        <p>
+                            Check the latest school
+                            announcements and important
+                            reminders here.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>Assignment Reminder</h3>
+
+                        <p>
+                            Don't forget to submit your
+                            assignments on time.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SCHOOL ACTIVITIES -->
+            <section id="activities" class="section">
+
+                <h2>📅 School Activities</h2>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <h3>School Event</h3>
+
+                        <p>
+                            Date: To be announced
+                        </p>
+
+                        <button>
+                            View Details
+                        </button>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>Student Activity</h3>
+
+                        <p>
+                            Date: To be announced
+                        </p>
+
+                        <button>
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ASSIGNMENT COLLABORATION -->
+            <section id="assignments" class="section">
+
+                <h2>📝 Assignment Collaboration</h2>
+
+                <div class="collaboration-box">
+
+                    <h3>Work Together</h3>
+
+                    <p>
+                        Create or join a group for your
+                        assignments and school projects.
+                    </p>
+
+                    <button onclick="createGroup()">
+                        + Create Group
+                    </button>
+
+                    <div id="groupMessage"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- STUDENT TOOLKIT -->
+            <section id="toolkit" class="section">
+
+                <h2>🛠 Student Toolkit</h2>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <h3>🎨 Canva</h3>
+
+                        <p>
+                            Useful for presentations,
+                            posters and graphic design.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>🎬 Video Editor</h3>
+
+                        <p>
+                            Useful for creating school
+                            video presentations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>📄 Document Tools</h3>
+
+                        <p>
+                            Useful for creating and
+                            editing school documents.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOST AND FOUND -->
+            <section id="lostfound" class="section">
+
+                <h2>🔎 Lost & Found</h2>
+
+                <div class="collaboration-box">
+
+                    <h3>Lost something?</h3>
+
+                    <p>
+                        Post information about lost or
+                        found items to help return them
+                        to their owners.
+                    </p>
+
+                    <button onclick="reportItem()">
+                        Report Lost/Found Item
+                    </button>
+
+                    <div id="lostMessage"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                © 2026 VMC SYNC |
+                VMC Student Community Platform
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
