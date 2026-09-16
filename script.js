@@ -1,18 +1,18 @@
-// LOGIN
+// ================= LOGIN =================
 
 function login() {
 
-    let username =
-        document.getElementById("username").value;
+    const name =
+        document.getElementById("loginName").value.trim();
 
-    let password =
-        document.getElementById("password").value;
+    const password =
+        document.getElementById("loginPassword").value.trim();
 
 
-    if (username === "" || password === "") {
+    if (name === "" || password === "") {
 
         alert(
-            "Please enter your username and password."
+            "Please enter your name and password."
         );
 
         return;
@@ -31,11 +31,26 @@ function login() {
 
     document
         .getElementById("displayName")
-        .textContent = username;
+        .textContent = name;
+
+
+    // Change profile letter
+
+    const profileLetters =
+        document.querySelectorAll(".profile-picture");
+
+
+    profileLetters.forEach(function(profile) {
+
+        profile.textContent =
+            name.charAt(0).toUpperCase();
+
+    });
+
 }
 
 
-// LOGOUT
+// ================= LOGOUT =================
 
 function logout() {
 
@@ -49,32 +64,50 @@ function logout() {
         .classList.remove("hidden");
 
 
-    document.getElementById("username").value = "";
+    document
+        .getElementById("loginName")
+        .value = "";
 
-    document.getElementById("password").value = "";
+    document
+        .getElementById("loginPassword")
+        .value = "";
+
 }
 
 
-// CREATE POST
+// ================= CREATE POST =================
 
-function createPost() {
+function addPost() {
 
-    let content =
-        document.getElementById("postContent").value;
+    const content =
+        document
+            .getElementById("postContent")
+            .value
+            .trim();
 
 
-    if (content.trim() === "") {
+    if (content === "") {
 
         alert(
-            "Please write something first."
+            "Please write something before posting."
         );
 
         return;
     }
 
 
-    let post =
-        document.createElement("div");
+    const name =
+        document
+            .getElementById("displayName")
+            .textContent;
+
+
+    const firstLetter =
+        name.charAt(0).toUpperCase();
+
+
+    const post =
+        document.createElement("article");
 
 
     post.className = "post";
@@ -82,71 +115,112 @@ function createPost() {
 
     post.innerHTML = `
 
-        <h3>
-            ${document.getElementById("displayName").textContent}
-        </h3>
+        <div class="post-header">
 
-        <p>${content}</p>
+            <div class="profile-picture">
+                ${firstLetter}
+            </div>
 
-        <button onclick="react(this)">
-            ❤️ 0
-        </button>
+            <div>
 
-        <button>
-            💬 Comment
-        </button>
+                <strong>
+                    ${name}
+                </strong>
+
+                <small>
+                    Just now · 🌎
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="post-content">
+
+            <p>
+                ${content}
+            </p>
+
+        </div>
+
+
+        <div class="post-stats">
+
+            <span>
+                👍 0
+            </span>
+
+            <span>
+                0 Comments
+            </span>
+
+        </div>
+
+
+        <div class="post-buttons">
+
+            <button onclick="likePost(this)">
+                👍 Like
+            </button>
+
+            <button>
+                💬 Comment
+            </button>
+
+            <button>
+                ↗ Share
+            </button>
+
+        </div>
 
     `;
 
 
     document
-        .getElementById("feed")
+        .getElementById("postFeed")
         .prepend(post);
 
 
     document
         .getElementById("postContent")
         .value = "";
+
 }
 
 
-// REACTION
+// ================= LIKE =================
 
-function react(button) {
+function likePost(button) {
 
-    let currentText =
-        button.textContent;
+    if (button.classList.contains("liked")) {
 
+        button.innerHTML = "👍 Like";
 
-    let number =
-        parseInt(currentText.match(/\d+/));
+        button.classList.remove("liked");
 
+    }
 
-    number++;
+    else {
 
+        button.innerHTML = "👍 Liked";
 
-    button.textContent =
-        "❤️ " + number;
+        button.classList.add("liked");
+
+    }
+
 }
 
 
-// CREATE GROUP
+// ================= LOST & FOUND =================
 
-function createGroup() {
+function reportLost() {
 
-    document
-        .getElementById("groupMessage")
-        .textContent =
-        "Assignment group creation feature is ready for development.";
-}
+    const message =
+        document.getElementById("lostMessage");
 
 
-// LOST AND FOUND
+    message.textContent =
+        "Lost & Found reporting will be available soon.";
 
-function reportItem() {
-
-    document
-        .getElementById("lostMessage")
-        .textContent =
-        "Lost & Found reporting feature is ready for development.";
 }
