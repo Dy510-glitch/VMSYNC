@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>VMC SYNC</title>
 
     <link rel="stylesheet" href="style.css">
@@ -10,323 +11,711 @@
 
 <body>
 
-    <!-- LOGIN PAGE -->
-    <div id="loginPage" class="login-container">
+<!-- ================= LOGIN ================= -->
 
-        <div class="login-box">
+<div id="loginPage" class="login-page">
 
-            <h1>VMC <span>SYNC</span></h1>
+    <div class="login-card">
 
-            <p>Connect. Collaborate. Stay in Sync.</p>
-
-            <input
-                type="text"
-                id="username"
-                placeholder="Enter your name"
-            >
-
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-            >
-
-            <button onclick="login()">LOGIN</button>
-
-            <p class="small-text">
-                VMC Student Community Platform
-            </p>
-
+        <div class="brand">
+            <h1>VMC</h1>
+            <span>SYNC</span>
         </div>
+
+        <p class="tagline">
+            Connect. Collaborate. Stay in Sync.
+        </p>
+
+        <input
+            type="text"
+            id="loginName"
+            placeholder="Name"
+        >
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+        >
+
+        <button class="login-button" onclick="login()">
+            Log In
+        </button>
+
+        <div class="divider"></div>
+
+        <button class="create-button">
+            Create New Account
+        </button>
+
+        <p class="login-note">
+            VMC Student Community Platform
+        </p>
 
     </div>
 
+</div>
 
-    <!-- MAIN WEBSITE -->
-    <div id="mainPage" class="hidden">
 
-        <!-- NAVIGATION -->
-        <header>
+<!-- ================= MAIN WEBSITE ================= -->
+
+<div id="mainPage" class="hidden">
+
+    <!-- TOP NAVIGATION -->
+
+    <header class="topbar">
+
+        <div class="top-left">
 
             <div class="logo">
                 VMC <span>SYNC</span>
             </div>
 
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#activities">Activities</a>
-                <a href="#assignments">Assignments</a>
-                <a href="#toolkit">Toolkit</a>
-                <a href="#lostfound">Lost & Found</a>
-            </nav>
+            <div class="search">
+                🔍
+                <input
+                    type="text"
+                    placeholder="Search VMC SYNC"
+                >
+            </div>
 
-            <button class="logout" onclick="logout()">
-                Logout
+        </div>
+
+
+        <nav class="top-nav">
+
+            <a href="#home">🏠</a>
+
+            <a href="#groups">👥</a>
+
+            <a href="#activities">📅</a>
+
+            <a href="#notifications">🔔</a>
+
+            <button onclick="logout()" class="profile-button">
+                👤
             </button>
 
-        </header>
+        </nav>
+
+    </header>
 
 
-        <!-- MAIN CONTENT -->
-        <main id="home">
+    <!-- ================= MAIN LAYOUT ================= -->
+
+    <div class="layout">
+
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar left-sidebar">
+
+            <div class="profile-mini">
+
+                <div class="profile-picture">
+                    R
+                </div>
+
+                <div>
+                    <strong id="displayName">
+                        Student
+                    </strong>
+
+                    <small>
+                        BSIS Student
+                    </small>
+                </div>
+
+            </div>
+
+
+            <a href="#home">
+                🏠 <span>Home</span>
+            </a>
+
+            <a href="#profile">
+                👤 <span>My Profile</span>
+            </a>
+
+            <a href="#groups">
+                👥 <span>Groups</span>
+            </a>
+
+            <a href="#activities">
+                📅 <span>School Activities</span>
+            </a>
+
+            <a href="#assignments">
+                📝 <span>Assignment Hub</span>
+            </a>
+
+            <a href="#toolkit">
+                🛠️ <span>Student Toolkit</span>
+            </a>
+
+            <a href="#lostfound">
+                🔎 <span>Lost & Found</span>
+            </a>
+
+        </aside>
+
+
+        <!-- ================= CENTER FEED ================= -->
+
+        <main class="feed" id="home">
+
 
             <!-- WELCOME -->
-            <section class="welcome">
+
+            <section class="welcome-card">
 
                 <h2>
-                    Welcome to VMC SYNC,
-                    <span id="displayName"></span>!
+                    Welcome to VMC SYNC 👋
                 </h2>
 
                 <p>
-                    Your school community, information,
-                    and collaboration platform.
+                    Connect with your fellow students,
+                    share information, and collaborate.
                 </p>
 
             </section>
 
 
             <!-- CREATE POST -->
-            <section class="post-box">
 
-                <h3>Create a Post</h3>
+            <section class="create-post">
 
-                <textarea
-                    id="postContent"
-                    placeholder="What's happening in VMC?"
-                ></textarea>
+                <div class="post-top">
 
-                <button onclick="createPost()">
-                    Post
-                </button>
+                    <div class="profile-picture">
+                        R
+                    </div>
+
+                    <textarea
+                        id="postContent"
+                        placeholder="What's happening in VMC?"
+                    ></textarea>
+
+                </div>
+
+                <div class="post-actions">
+
+                    <button onclick="addPost()">
+                        📢 Post
+                    </button>
+
+                    <button>
+                        🖼️ Photo
+                    </button>
+
+                    <button>
+                        📎 File
+                    </button>
+
+                </div>
 
             </section>
 
 
-            <!-- COMMUNITY FEED -->
-            <section class="section">
+            <!-- COMMUNITY POST -->
 
-                <h2>Community Feed</h2>
+            <section id="postFeed">
 
-                <div id="feed">
 
-                    <div class="post">
+                <article class="post">
 
-                        <h3>VMC Student</h3>
+                    <div class="post-header">
+
+                        <div class="profile-picture">
+                            V
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                VMC Student Community
+                            </strong>
+
+                            <small>
+                                2 hours ago · 🌎
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-content">
 
                         <p>
-                            Welcome to VMC SYNC!
-                            This is our new student
-                            community platform.
+                            Welcome to VMC SYNC! 🎉
                         </p>
 
-                        <button onclick="react(this)">
-                            ❤️ 0
+                        <p>
+                            This is a place where VMC students
+                            can connect, share school information,
+                            and collaborate on academic activities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="post-stats">
+
+                        <span>
+                            👍 ❤️ 12
+                        </span>
+
+                        <span>
+                            4 Comments
+                        </span>
+
+                    </div>
+
+
+                    <div class="post-buttons">
+
+                        <button onclick="likePost(this)">
+                            👍 Like
                         </button>
 
                         <button>
                             💬 Comment
                         </button>
 
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ANNOUNCEMENTS -->
-            <section class="section">
-
-                <h2>📢 Announcements</h2>
-
-                <div class="cards">
-
-                    <div class="card">
-
-                        <h3>School Announcement</h3>
-
-                        <p>
-                            Check the latest school
-                            announcements and important
-                            reminders here.
-                        </p>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <h3>Assignment Reminder</h3>
-
-                        <p>
-                            Don't forget to submit your
-                            assignments on time.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- SCHOOL ACTIVITIES -->
-            <section id="activities" class="section">
-
-                <h2>📅 School Activities</h2>
-
-                <div class="cards">
-
-                    <div class="card">
-
-                        <h3>School Event</h3>
-
-                        <p>
-                            Date: To be announced
-                        </p>
-
                         <button>
-                            View Details
+                            ↗ Share
                         </button>
 
                     </div>
 
+                </article>
 
-                    <div class="card">
 
-                        <h3>Student Activity</h3>
+                <article class="post">
+
+                    <div class="post-header">
+
+                        <div class="profile-picture">
+                            J
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                James
+                            </strong>
+
+                            <small>
+                                Yesterday · 🌎
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-content">
 
                         <p>
-                            Date: To be announced
+                            Looking for members who can help
+                            with our Web Development project.
                         </p>
 
+                        <p>
+                            We need someone for documentation
+                            and someone for UI design.
+                        </p>
+
+                    </div>
+
+
+                    <div class="post-stats">
+
+                        <span>
+                            👍 8
+                        </span>
+
+                        <span>
+                            3 Comments
+                        </span>
+
+                    </div>
+
+
+                    <div class="post-buttons">
+
+                        <button onclick="likePost(this)">
+                            👍 Like
+                        </button>
+
                         <button>
-                            View Details
+                            💬 Comment
+                        </button>
+
+                        <button>
+                            ↗ Share
                         </button>
 
                     </div>
 
-                </div>
-
-            </section>
-
-
-            <!-- ASSIGNMENT COLLABORATION -->
-            <section id="assignments" class="section">
-
-                <h2>📝 Assignment Collaboration</h2>
-
-                <div class="collaboration-box">
-
-                    <h3>Work Together</h3>
-
-                    <p>
-                        Create or join a group for your
-                        assignments and school projects.
-                    </p>
-
-                    <button onclick="createGroup()">
-                        + Create Group
-                    </button>
-
-                    <div id="groupMessage"></div>
-
-                </div>
-
-            </section>
-
-
-            <!-- STUDENT TOOLKIT -->
-            <section id="toolkit" class="section">
-
-                <h2>🛠 Student Toolkit</h2>
-
-                <div class="cards">
-
-                    <div class="card">
-
-                        <h3>🎨 Canva</h3>
-
-                        <p>
-                            Useful for presentations,
-                            posters and graphic design.
-                        </p>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <h3>🎬 Video Editor</h3>
-
-                        <p>
-                            Useful for creating school
-                            video presentations.
-                        </p>
-
-                    </div>
-
-
-                    <div class="card">
-
-                        <h3>📄 Document Tools</h3>
-
-                        <p>
-                            Useful for creating and
-                            editing school documents.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- LOST AND FOUND -->
-            <section id="lostfound" class="section">
-
-                <h2>🔎 Lost & Found</h2>
-
-                <div class="collaboration-box">
-
-                    <h3>Lost something?</h3>
-
-                    <p>
-                        Post information about lost or
-                        found items to help return them
-                        to their owners.
-                    </p>
-
-                    <button onclick="reportItem()">
-                        Report Lost/Found Item
-                    </button>
-
-                    <div id="lostMessage"></div>
-
-                </div>
+                </article>
 
             </section>
 
         </main>
 
 
-        <!-- FOOTER -->
-        <footer>
+        <!-- ================= RIGHT SIDEBAR ================= -->
 
-            <p>
-                © 2026 VMC SYNC |
-                VMC Student Community Platform
-            </p>
+        <aside class="sidebar right-sidebar">
 
-        </footer>
+
+            <!-- ACTIVITIES -->
+
+            <div class="side-card">
+
+                <h3>
+                    📅 Upcoming Activities
+                </h3>
+
+                <div class="activity">
+
+                    <strong>
+                        School Activity
+                    </strong>
+
+                    <small>
+                        Date to be announced
+                    </small>
+
+                </div>
+
+
+                <div class="activity">
+
+                    <strong>
+                        Student Event
+                    </strong>
+
+                    <small>
+                        Date to be announced
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANNOUNCEMENTS -->
+
+            <div class="side-card">
+
+                <h3>
+                    📢 Announcements
+                </h3>
+
+                <p>
+                    Check VMC SYNC regularly for
+                    important school announcements.
+                </p>
+
+            </div>
+
+
+            <!-- ONLINE STUDENTS -->
+
+            <div class="side-card">
+
+                <h3>
+                    🟢 Students
+                </h3>
+
+                <p>
+                    🟢 Randy
+                </p>
+
+                <p>
+                    🟢 James
+                </p>
+
+                <p>
+                    🟢 Blessy
+                </p>
+
+            </div>
+
+        </aside>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+    <!-- ================= GROUPS ================= -->
+
+    <section id="groups" class="full-section">
+
+        <h2>👥 Student Groups</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <h3>
+                    BSIS 3rd Year
+                </h3>
+
+                <p>
+                    Student group for BSIS 3rd Year.
+                </p>
+
+                <strong>
+                    👥 42 Members
+                </strong>
+
+                <button>
+                    View Group
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>
+                    Team Andrei
+                </h3>
+
+                <p>
+                    Assignment and project collaboration.
+                </p>
+
+                <strong>
+                    👥 3 Members
+                </strong>
+
+                <button>
+                    View Group
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Discussions about web development.
+                </p>
+
+                <strong>
+                    👥 25 Members
+                </strong>
+
+                <button>
+                    View Group
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ASSIGNMENTS ================= -->
+
+    <section id="assignments" class="full-section">
+
+        <h2>
+            📝 Assignment Hub
+        </h2>
+
+        <div class="assignment-grid">
+
+            <div class="assignment-card">
+
+                <span class="subject">
+                    Quantitative Methods
+                </span>
+
+                <h3>
+                    Activity 9
+                </h3>
+
+                <p>
+                    Complete the required Excel activity.
+                </p>
+
+                <div class="assignment-info">
+
+                    📅 Deadline:
+                    <strong>
+                        To be announced
+                    </strong>
+
+                </div>
+
+                <button>
+                    View Assignment
+                </button>
+
+            </div>
+
+
+            <div class="assignment-card">
+
+                <span class="subject">
+                    Web Development
+                </span>
+
+                <h3>
+                    Website Project
+                </h3>
+
+                <p>
+                    Develop a working web-based system.
+                </p>
+
+                <div class="assignment-info">
+
+                    👥 Team Collaboration
+
+                </div>
+
+                <button>
+                    View Assignment
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TOOLKIT ================= -->
+
+    <section id="toolkit" class="full-section">
+
+        <h2>
+            🛠️ Student Toolkit
+        </h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <h3>
+                    🎨 Design Tools
+                </h3>
+
+                <p>
+                    Tools for presentations, posters,
+                    and graphic design.
+                </p>
+
+                <button>
+                    Explore
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>
+                    🎬 Video Tools
+                </h3>
+
+                <p>
+                    Tools for video editing and
+                    school presentations.
+                </p>
+
+                <button>
+                    Explore
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h3>
+                    💻 Programming Tools
+                </h3>
+
+                <p>
+                    Useful tools for programming
+                    and web development.
+                </p>
+
+                <button>
+                    Explore
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LOST AND FOUND ================= -->
+
+    <section id="lostfound" class="full-section">
+
+        <h2>
+            🔎 Lost & Found
+        </h2>
+
+        <div class="lost-card">
+
+            <h3>
+                Lost something?
+            </h3>
+
+            <p>
+                Post information about lost or found
+                belongings to help return them to their owner.
+            </p>
+
+            <button onclick="reportLost()">
+                + Report Lost / Found Item
+            </button>
+
+            <div id="lostMessage"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>
+            VMC SYNC
+        </strong>
+
+        <p>
+            Web-based Student Service and Community Platform
+        </p>
+
+        <small>
+            © 2026 VMC SYNC
+        </small>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
