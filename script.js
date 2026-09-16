@@ -130,3 +130,22 @@ function reportLost() {
     const message = document.getElementById("lostMessage");
     message.textContent = "Lost & Found reporting will be available soon.";
 }
+
+// ================= PAGE NAVIGATION =================
+
+function showPage(pageId) {
+    // Hide all page contents
+    const pages = document.querySelectorAll(".page-content");
+    pages.forEach(page => {
+        page.classList.add("hidden-page");
+    });
+
+    // Show the selected page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.remove("hidden-page");
+    }
+
+    // Scroll back to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
