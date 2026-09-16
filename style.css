@@ -794,3 +794,24 @@ footer p {
     font-size: 13px;
     font-weight: bold;
 }
+
+/* ================= PAGE SWITCHING STYLES ================= */
+
+.hidden-page {
+    display: none !important;
+}
+
+.page-container {
+    grid-column: 2 / 3; /* Fits right into your grid layout between the sidebars */
+}
+
+.full-section-page {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.full-section-page h2 {
+    margin-bottom: 20px;
+}
