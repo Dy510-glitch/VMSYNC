@@ -748,3 +748,49 @@ footer p {
     }
 
 }
+
+/* ================= COMMENTS STYLING ================= */
+
+.comment-section {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.comment-list {
+    margin-bottom: 10px;
+}
+
+.comment-item {
+    background: #f0f2f5;
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.comment-input-box {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-input-box input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    background: #f0f2f5;
+}
+
+.comment-input-box button {
+    border: none;
+    background: #111;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
